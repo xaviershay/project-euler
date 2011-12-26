@@ -18,7 +18,9 @@ follow along as many of the solutions are quite expressive --- hopefully this
 will pique your interest in the language!
 
 This treatise is written in Literate Haskell, meaning it is executable as-is
-with `ghc`. The source is available on GitHub.
+with `ghc`. The [source is available on GitHub][source].
+
+[source]: https://github.com/xaviershay/project-euler
 
 Preamble
 --------
