@@ -1,9 +1,13 @@
 #!/bin/bash
 
 filename=euler_$@.lhs
+extra=""
+if [ $@ -eq 10 ]
+  then extra=src/euler_7.lhs
+fi
 
 awk 'FNR==1{print ""}{print}' \
-  src/preamble.lhs src/$filename > pkg/$filename
+  src/preamble.lhs $extra src/$filename > pkg/$filename
 echo "" >> pkg/$filename
 echo "> main = runTestTT $ TestList ( tests$@ )" >> pkg/$filename
 
