@@ -7,11 +7,17 @@ Project Euler
   the use of a computer and programming skills will be required to solve most
   problems. -- [Project Euler](http://projecteuler.net)
 
-Follows is my attempt at the problems. My goal is to improve my familiarity with
-the Haskell language, work on my algorithmic chops, and document the
-journey as I go.
+Follows is my attempt at the problems. My goal in writing this is threefold: to
+improve my familiarity with the Haskell language, work on my algorithmic chops,
+and further my technical writing skills.
 
-This document is written in literate haskell, meaning it is executable as-is
+I presume a basic understanding of Haskell, but not in any of the algorithmic
+techniques. Each solution should be comprehensible without former exposure to
+the problem. If you are unfamiliar with Haskell, you may still be able to
+follow along as many of the solutions are quite expressive --- hopefully this
+will pique your interest in the language!
+
+This treatise is written in Literate Haskell, meaning it is executable as-is
 with `ghc`. The source is available on GitHub.
 
 Preamble
