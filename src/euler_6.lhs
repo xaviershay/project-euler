@@ -15,7 +15,7 @@ Problem 6
 
 The problem translates naturally into code.
 
-> euler6 n = (sum r)^2 - (sum $ map (^ 2) r)
+> euler6 n = (sum r)^2 - (sum . map (^ 2) $ r)
 >   where
 >     r = [1..n]
 
