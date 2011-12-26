@@ -2,7 +2,7 @@ Problem 4
 ---------
 
  > A palindromic number reads the same both ways. The largest palindrome made
- > from the product of two 2-digit numbers is 91 × 99 = 9009.
+ > from the product of two 2-digit numbers is<br />91 × 99 = 9009.
  >
  > Find the largest palindrome made from the product of two 3-digit numbers.
 
@@ -18,9 +18,10 @@ dramatically, however, with two techniques.
 It is known that the answer will be six digits long (maximum length of two
 3-digit numbers multiplied), and will be of the form:
 
-      100000a + 10000b + 1000c + 100c + 10b + a
-    = 100001a + 10010b + 1100c
-    = 11(9091a + 910b + 110c)
+ >  = 100000<i>a</i> + 10000<i>b</i> + 1000<i>c</i> + 100<i>c</i> + 10<i>b</i>
+ >      + <i>a</i><br />
+ >  = 100001<i>a</i> + 10010<i>b</i> + 1100<i>c</i><br />
+ >  = 11(9091<i>a</i> + 910<i>b</i> + 110<i>c</i>)
 
 This informs us that the answer must be divisible by 11, which allows the input
 set to be trimmed considerably, yielding an order of magnitude speed up.
