@@ -13,7 +13,8 @@ mkdir -p pkg
 # any code blocks or other syntax that may be present.
 awk 'FNR==1{print ""}{print}' \
   src/preamble.lhs src/euler_*.lhs src/postamble.lhs | \
-  bin/replace_bird_tracks.rb > pkg/euler.lhs
+  bin/replace_bird_tracks.rb |
+  bin/format_math > pkg/euler.lhs
 
 hscolour -lit -css -partial pkg/euler.lhs | \
   ruby -ne 'print $_.gsub(%r[\\(begin|end){code}], "")' > pkg/euler.md

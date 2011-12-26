@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+def format_math(string)
+  string.gsub!(/([a-z]+)/, '<i>\1</i>')
+  string.gsub!(/\^(\d+)/, '<sup>\1</sup>')
+  string
+end
+
+ARGF.lines.each do |line|
+  if line[0..1] == ') '
+    puts ' >' + format_math(line[1..-1].chomp) + '<br />'
+  elsif line[0] == '>'
+    print line
+  else
+    line.gsub!(/\|[^|]+\|/) {|x| format_math(x[1..-2]) }
+    print line
+  end
+end

@@ -1,35 +1,54 @@
 Problem 9
 ---------
 
- > A Pythagorean triplet is a set of three natural numbers, _a_ < _b_ < _c_,
- > for which _a_<sup>2</sup> + _b_<sup>2</sup> = _c_<sup>2</sup>.
+ > A Pythagorean triplet is a set of three natural numbers, |a < b < c|,
+ > for which |a^2 + b^2 = c^2|.
  >
- > For example, 3<sup>2</sup> + 4<sup>2</sup> = 9 + 16 = 25 = 5<sup>2</sup>.
+ > For example, |3^2 + 4^2 = 9 + 16 = 25 = 5^2|.
  >
- > There exists exactly one Pythagorean triplet for which _a_ + _b_ + _c_ =
- > 1000.  Find the product _abc_.
+ > There exists exactly one Pythagorean triplet for which |a + b + c = 1000|.
+ > Find the product |abc|.
 
-While this problem can be readily expressed as a list comprehension, it is too
-inefficent to calculate a timely answer. By way of optimization, a list of
-potential _c_ values is precomputed and stored in a lookup table so that all
-`sqrt` calls can be avoided.
+Using a brute force method, the inner loop is over values of _b_. It therefore
+makes sense to optimize that loop by bounding the range to consider as much as
+possible. The lower bound is obvious since _a_ < _b_. A naive upper bound is
+1000 - _a_ - _a_, since _b_ > _a_, _c_ > _a_, and the sum of all three must
+equal 1000. Considering also that _c_ > _b_ however allows us to further
+eliminate the top half of the range.
 
-> squaresTo n = M.fromList [(x * x, x) | x <- [1..n]]
+> maxB n a = (n-a) `div` 2
 
-The subsequent algorithm takes advantage of the ability to pattern match in
-list comprehensions to filter out non-matching candidates.
-
-> euler9 n = [a * b * c | a      <- [1..n],
->                         b      <- [a..n],
->                         Just c <- [naturalSqrt $ a^2 + b^2],
->                         a + b + c == n
->            ]
->   where
->     squares       = squaresTo n
->     naturalSqrt x = M.lookup x squares
+> euler9 n = head [a*b*c | a <- [1..n],
+>                          b <- [a+1..maxB n a],
+>                          let c = n - b - a,
+>                          a * a + b * b == c * c
+>                 ]
 
 > tests9 =
->  [ "#9 given"   ~: [60]       ~=? euler9 12
->  , "#9 problem" ~: [31875000] ~=? euler9 1000
+>  [ "#9 given"   ~: 60       ~=? euler9 12
+>  , "#9 problem" ~: 31875000 ~=? euler9 1000
 >  ]
 
+For a brute force method that naturally maps to the problem description this
+solution isn't bad.  Substitution and rearranging of the equations can lead to
+better lower and upper bounds for the search space, but this is merely a
+refinement of the same algorithm. There is a more elegant algorithmic
+approach, however.
+
+[Euclid's formula][euclid-wiki] states that for all Pythagorean triples the
+following hold true where _m_ and _n_ are positive integers:
+
+) a = m^2 - n^2
+) b = 2mn
+) c = m^2 + n^2
+
+This allows the problem equation to be simplified radically.
+
+) (m^2 - n^2) + 2mn + (m^2 + n^2) = 1000
+) m^2 + mn = 500
+) m(m + n) = 500
+
+A solution can then be found by finding two matching candidates from the
+factors of 500, in this case |m = 20, n = 5|.
+
+[euclid-wiki]: http://en.wikipedia.org/wiki/Pythagorean_triple#Generating_a_triple
