@@ -28,15 +28,15 @@ given below.
 
 My first solution used a cumbersome arrangement of `splitAt` calls to compute a
 list of all consecutive numbers. I was then made aware of the `tails` function,
-when combined with `take 5` does essentially the same thing. It does return
-sequences of less than 5 digits (from the end of the string), but these do not
-need to be filtered since their product will never be more than the same string
-with an extra preceeding digit.
+which when combined with `take 5` does essentially the same thing. It does
+return sequences of less than five digits (from the end of the string), but
+these do not need to be filtered since their product will never be more than
+the same string with an extra preceeding digit.
 
-> eulerEight input = maximum . map (product . take 5) . tails $ digits
+> euler8 input = maximum . map (product . take 5) . tails $ digits
 >   where
 >     digits = map digitToInt input
 
-> testsEight =
->   [ "#8 problem" ~: 40824 ~=? eulerEight number
+> tests8 =
+>   [ "#8 problem" ~: 40824 ~=? euler8 number
 >   ]
