@@ -38,6 +38,7 @@ Importing the suite of `List` functions is non-controversial in a language that
 specifically excels at list processing.
 
 > import List
+> import Data.List.Split
 
 The `Char` module is included for conversion functions handy for dealing with
 different input and output formats of the problems, specifically `digitToInt`
@@ -50,3 +51,9 @@ function names in `Data.Map` conflict with many of the functions in the
 `Prelude`, requrie the `M` prefix to reference them.
 
 > import qualified Data.Map as M
+
+A helper function similar to `digitToInt` for use in parsing input.
+
+> stringToInt :: String -> Int
+> stringToInt = read
+
