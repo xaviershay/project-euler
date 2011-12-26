@@ -12,6 +12,7 @@ written the prime-factoring basis of the algorithm in problem three, I feel it
 is allowable.
 
 > euler5 n = foldr1 lcm [1..n]
+
 > tests5 =
 >   [ "#5 given"   ~: 2520      ~=? euler5 10
 >   , "#5 problem" ~: 232792560 ~=? euler5 20
