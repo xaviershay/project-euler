@@ -5,7 +5,7 @@ Project Euler
   problems that will require more than just mathematical insights to solve.
   Although mathematics will help you arrive at elegant and efficient methods,
   the use of a computer and programming skills will be required to solve most
-  problems. -- http://projecteuler.net
+  problems. -- [Project Euler](http://projecteuler.net)
 
 Follows is my attempt at the problems. My goal is to improve my familiarity with
 the Haskell language, work on my algorithmic chops, and document the
