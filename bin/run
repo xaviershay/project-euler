@@ -1,6 +1,12 @@
 #!/bin/bash
 
-filename=euler_$@.lhs
+number=$@
+
+if [ ${#number} -eq 1 ]
+  then filename=euler_00$@.lhs
+  else filename=euler_0$@.lhs
+fi
+
 extra=""
 if [ $@ -eq 10 ]
   then extra=src/euler_7.lhs
