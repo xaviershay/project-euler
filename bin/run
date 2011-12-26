@@ -2,7 +2,8 @@
 
 filename=euler_$@.lhs
 
-cat src/preamble.lhs src/$filename > pkg/$filename
+awk 'FNR==1{print ""}{print}' \
+  src/preamble.lhs src/$filename > pkg/$filename
 echo "" >> pkg/$filename
 echo "> main = runTestTT $ TestList ( tests$@ )" >> pkg/$filename
 
