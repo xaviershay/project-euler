@@ -9,10 +9,10 @@ Starting from two and working up, dividing the target by found factors on the
 way, any found factors will necessarily be prime: 4 will not be found because 2
 would have already been found twice.
 
-`candidates` is an argument so that the algorithm can optimized in future
-problems.
+`candidates` is extracted as an argument so that the algorithm can be reused to
+create a more optimal algorithm in future problems.
 
-> primeFactors candidates n = primeFactors' n n candidates
+> primeFactorsFromCandidates candidates n = primeFactors' n n candidates
 >   where
 >     primeFactors' n n' candidates
 >       | n' == 1       = []
@@ -20,10 +20,12 @@ problems.
 >       | otherwise     = primeFactors' n n' (drop 1 candidates)
 >       where p = head candidates
 
+> naivePrimeFactors = primeFactorsFromCandidates [2..]
+
 The solution is then the last factor found. Note that no explicit logic for
 "primeness" is required.
 
-> euler3 = last . (primeFactors [2..])
+> euler3 = last . naivePrimeFactors
 
 > tests3 =
 >   [ "#3 test"    ~: 29   ~=? euler3 13195
