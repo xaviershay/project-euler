@@ -9,17 +9,21 @@ Starting from two and working up, dividing the target by found factors on the
 way, any found factors will necessarily be prime: 4 will not be found because 2
 would have already been found twice.
 
-> primeFactors n = primeFactors' n n 2
+`candidates` is an argument so that the algorithm can optimized in future
+problems.
+
+> primeFactors candidates n = primeFactors' n n candidates
 >   where
->     primeFactors' n n' p
+>     primeFactors' n n' candidates
 >       | n' == 1       = []
->       | rem n' p == 0 = p:(primeFactors' n (n' `div` p) p)
->       | otherwise     = primeFactors' n n' (p + 1)
+>       | rem n' p == 0 = p:(primeFactors' n (n' `div` p) candidates)
+>       | otherwise     = primeFactors' n n' (drop 1 candidates)
+>       where p = head candidates
 
 The solution is then the last factor found. Note that no explicit logic for
 "primeness" is required.
 
-> euler3 = last . primeFactors
+> euler3 = last . (primeFactors [2..])
 
 > tests3 =
 >   [ "#3 test"    ~: 29   ~=? euler3 13195
