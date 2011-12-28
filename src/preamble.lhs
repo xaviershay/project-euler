@@ -38,6 +38,7 @@ Importing the suite of `List` functions is non-controversial in a language that
 specifically excels at list processing.
 
 > import List
+> import Data.List
 > import Data.List.Split
 
 The `Char` module is included for conversion functions handy for dealing with
