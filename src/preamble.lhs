@@ -47,11 +47,10 @@ to convert strings to integers.
 
 > import Char
 
-Lookup tables are a useful optimization for some of the problems. Since the
-function names in `Data.Map` conflict with many of the functions in the
-`Prelude`, requrie the `M` prefix to reference them.
+Memoization is important to speed up many solutions. This module is not part
+of the standard library, but is widely used.
 
-> import qualified Data.Map as M
+> import qualified Data.MemoCombinators as Memo
 
 A helper function similar to `digitToInt` for use in parsing input.
 

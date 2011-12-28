@@ -20,12 +20,17 @@ Problem 14
  > Note that once the chain starts the terms are allowed to go above one
  > million.
 
-An infinite sequence for collatz numbers is implemented exactly as described.
+A memoized recursive function to calculate the length of the collatz sequence
+for a number. Memoization is critical here as it speeds up the solution by an
+order of magnitude.
 
-> collatz x
->   | x == 1    = [1]
->   | even x    = x:collatz (x `div` 2)
->   | otherwise = x:collatz (3 * x + 1)
+> collatz :: Integer -> Integer
+> collatz = Memo.arrayRange (1,1000000) collatz'
+>   where
+>     collatz' 1  = 1
+>     collatz' x
+>       | even x    = 1 + collatz (x `div` 2)
+>       | otherwise = 1 + collatz (3 * x + 1)
 
 Tuple comparison in Haskell is done using the first element, so `max (5,1)
 (4,100)` will return `(5,1)`. This is taken advantage to find the maximum index
@@ -41,14 +46,11 @@ overflow][hwiki-stack-overflow] for more information.
 
 > maxIndex = snd . foldl1' max . (flip zip [0..])
 
-The running time of this solution is somewhat excessive at around fifteen
-seconds. Initial profiling suggests that memoization in the `collatz` function
-could prove useful. In particular, `even` is called more times than would seem
-reasonable.
+The solution is a trivial combination of these two functions.
 
 > euler14 n = (maxIndex lengths) + 1
 >   where
->     lengths = map (length . collatz) [1..n-1]
+>     lengths = map collatz [1..n-1]
 
 > tests14 =
 >   [ "#14 given"   ~: 9      ~=? euler14 13
