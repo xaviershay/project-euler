@@ -22,5 +22,5 @@ awk 'FNR==1{print ""}{print}' \
 echo "" >> pkg/$filename.lhs
 echo "> main = runTestTT $ TestList ( tests$@ )" >> pkg/$filename.lhs
 
-ghc --make pkg/$filename.lhs
+ghc -O2 --make pkg/$filename.lhs
 pkg/$filename
