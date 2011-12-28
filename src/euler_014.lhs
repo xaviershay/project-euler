@@ -29,7 +29,7 @@ order of magnitude.
 >   where
 >     collatz' 1  = 1
 >     collatz' x
->       | even x    = 1 + collatz (x `div` 2)
+>       | even x    = 1 + collatz (x `shiftR` 1)
 >       | otherwise = 1 + collatz (3 * x + 1)
 
 Tuple comparison in Haskell is done using the first element, so `max (5,1)

@@ -41,6 +41,11 @@ specifically excels at list processing.
 > import Data.List
 > import Data.List.Split
 
+`Bits` gives access to bit shifting functions, useful in particular for fast
+divide by two using `shiftR`.
+
+> import Data.Bits
+
 The `Char` module is included for conversion functions handy for dealing with
 different input and output formats of the problems, specifically `digitToInt`
 to convert strings to integers.
