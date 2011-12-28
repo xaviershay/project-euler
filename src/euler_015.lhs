@@ -33,3 +33,14 @@ reasonable running time.
 >   [ "#15 given"   ~: 6            ~=? euler15 2
 >   , "#15 problem" ~: 137846528820 ~=? euler15 20
 >   ]
+
+Another way of approaching the problem is to recognize that all routes must go
+twenty steps left and twenty steps down, yielding a collection of forty
+"moves". The total number of arrangements of moves is then |40!|. This contains
+duplicate paths however, since swapping two down moves results in the same
+path. The possible arrangements for the down moves is is |20!|, same for
+left, so the total number of arrangements without duplicates is
+|40!/(20! * 20!)|.
+
+This is a standard calculation in combinatorics known as a binomial
+coefficient, or "n choose k" where |n = 40| and |k = 20|.
