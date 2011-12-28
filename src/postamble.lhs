@@ -22,4 +22,6 @@ As a final and closing convenience, a main function is provided to run all the g
 >                            ++ tests13
 >                            ++ tests14
 >                            ++ tests15
+>                            ++ tests16
+>                            ++ tests17
 >                             )
