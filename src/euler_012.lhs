@@ -15,7 +15,7 @@ Problem 12
  > value of the first triangle number to have over five hundred divisors?
 
 An infinite sequence of triangle numbers is a delight to define in Haskell.
-This is a more refined approach than that used for the fibonacci sequence in
+This is a more refined approach than that used for the Fibonacci sequence in
 problem two.
 
 > triangles = 1:(zipWith (+) triangles [2..])
