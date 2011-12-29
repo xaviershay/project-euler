@@ -57,8 +57,12 @@ of the standard library, but is widely used.
 
 > import qualified Data.MemoCombinators as Memo
 
+Date functions are included for problem 19.
+
+> import Data.Time.Calendar
+> import Data.Time.Calendar.OrdinalDate
+
 A helper function similar to `digitToInt` for use in parsing input.
 
 > stringToInt :: String -> Int
 > stringToInt = read
-
