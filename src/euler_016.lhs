@@ -7,7 +7,9 @@ Problem 16
 
 Does what is says on the packet.
 
-> euler16 = sum . map digitToInt . show . (^) 2
+> sumOfDigits = sum . map digitToInt . show
+
+> euler16 = sumOfDigits . (^) 2
 
 > tests16 =
 >   [ "#16 given"   ~: 26   ~=? euler16 15
