@@ -26,7 +26,15 @@ fi
 awk 'FNR==1{print ""}{print}' \
   src/preamble.lhs $extra src/$filename.lhs > pkg/$filename.lhs
 echo "" >> pkg/$filename.lhs
-echo "> main = runTestTT $ TestList ( tests$@ )" >> pkg/$filename.lhs
+
+if [ $@ -eq 22 ]
+then
+  echo '> main = do' >> pkg/$filename.lhs
+  echo '>   input22 <- readFile "data/names.txt"' >> pkg/$filename.lhs
+  echo '>   runTestTT $ TestList ( tests22 input22 )' >> pkg/$filename.lhs
+else
+  echo "> main = runTestTT $ TestList ( tests$@ )" >> pkg/$filename.lhs
+fi
 
 ghc -O2 --make pkg/$filename.lhs
 pkg/$filename

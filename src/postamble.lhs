@@ -7,7 +7,9 @@ will become fuller.
 
 As a final and closing convenience, a main function is provided to run all the given test cases.
 
-> main = runTestTT $ TestList ( tests1
+> main = do
+>   input22 <- readFile "data/names.txt"
+>   runTestTT $ TestList ( tests1
 >                            ++ tests2
 >                            ++ tests3
 >                            ++ tests4
@@ -28,4 +30,5 @@ As a final and closing convenience, a main function is provided to run all the g
 >                            ++ tests19
 >                            ++ tests20
 >                            ++ tests21
+>                            ++ (tests22 input22)
 >                             )

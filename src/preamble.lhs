@@ -62,6 +62,11 @@ Date functions are included for problem 19.
 > import Data.Time.Calendar
 > import Data.Time.Calendar.OrdinalDate
 
+Searching data structures is much easier using functions from `Maybe` such as
+`fromJust`.
+
+> import Data.Maybe
+
 A helper function similar to `digitToInt` for use in parsing input.
 
 > stringToInt :: String -> Int
