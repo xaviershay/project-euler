@@ -25,6 +25,9 @@ fi
 if [ $@ -eq 23 ]
   then extra="src/euler_003.lhs src/euler_007.lhs src/euler_012.lhs src/euler_021.lhs"
 fi
+if [ $@ -eq 25 ]
+  then extra="src/euler_002.lhs"
+fi
 
 awk 'FNR==1{print ""}{print}' \
   src/preamble.lhs $extra src/$filename.lhs > pkg/$filename.lhs
