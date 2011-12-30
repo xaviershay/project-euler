@@ -41,6 +41,11 @@ specifically excels at list processing.
 > import Data.List
 > import Data.List.Split
 
+In cases where constant-time random access is required for efficiency, an array
+will be used instead of a list.
+
+> import Array
+
 `Bits` gives access to bit shifting functions, useful in particular for fast
 divide by two using `shiftR`.
 
