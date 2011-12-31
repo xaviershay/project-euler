@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -e
+
+./build.sh
+
+ghc -O2 --make pkg/euler.lhs
+time pkg/euler
