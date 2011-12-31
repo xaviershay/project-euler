@@ -34,6 +34,9 @@ this solution is going to be a baptism of fire!
 
 [hwiki-pointfree]:http://www.haskell.org/haskellwiki/Pointfree
 
+The solution can easily be expressed as high level concepts, with the details
+to be filled in below.
+
 > euler11 w l = maximum . map product . candidates
 >  where
 >    candidates input = concatMap (adjacent (parse input)) $ directions
@@ -54,11 +57,11 @@ and take the first four of each. As in problem eight, candidates less than the
 required length do not need to be filtered since they cannot possibly provide
 an incorrect answer, and add only a neglible amount to the running time.
 
->    east      = map (map (take l) . tails)
+>    east = map (map (take l) . tails)
 
 South is exactly the same logic as east, except with rows and columns switched.
 
->    south     = east . transpose
+>    south = east . transpose
 
 A cute functional trick is used to extract the diagonals from a grid. `zipWith`
 shears off the south-west half of the grid, leaving the columns of the
@@ -68,10 +71,11 @@ rows.
 >    diagonals = map (take l) . transpose . zipWith drop [0..]
 
 This is not sufficient however. Diagonals from the excluded south-west half
-still need to be included as candidates! To compensate, a series of subgrids is
+still need to be included as candidates! Further, only the first four of each
+diagonal is currently being included. To compensate, a series of sub-grids is
 created each with the top row of the last grid dropped, and diagonals are
 generated for each of them.  Note that `tails` here is being applied to the
-grid, not the rows of the grid as it was above.
+grid itself, not the rows of the grid as it was above.
 
 >    southEast = map diagonals . tails
 

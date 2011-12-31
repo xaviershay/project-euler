@@ -13,7 +13,7 @@ Problem 25
 The `fibonacci` method defined in problem 2 has a different starting index than
 this problem requires, hence the prefixed digits.
 
-> euler25 n = length . takeWhile (< 10^(n-1)) $ 0:1:fibonacci
+> euler25 n = length $ takeWhile (< 10^(n-1)) (0:1:fibonacci)
 
 > tests25 =
 >   [ "#25 given"   ~: 12   ~=? euler25 3

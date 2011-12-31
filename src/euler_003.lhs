@@ -9,8 +9,8 @@ Starting from two and working up, dividing the target by found factors on the
 way, any found factors will necessarily be prime: 4 will not be found because 2
 would have already been found twice.
 
-`candidates` is extracted as an argument so that the algorithm can be reused to
-create a more optimal algorithm in future problems.
+`candidates` is extracted as an argument so that the algorithm can be reused in
+a more optimal way for future problems.
 
 > primeFactorsFromCandidates candidates n = primeFactors' n n candidates
 >   where

@@ -9,12 +9,13 @@ Problem 2
  > By considering the terms in the Fibonacci sequence whose values do not
  exceed four million, find the sum of the even-valued terms.
 
-Start by defining an infinite sequence to generate Fibonacci values, a
-particularly elegant operation in Haskell.
+Start by defining an infinite sequence to generate Fibonacci values, made
+possible in Haskell by lazy evaluation. In many languages, this definition
+would never terminate.
 
-> fibonacci = seq 0 1 where seq x y = (x+y):(seq y (x+y))
+> fibonacci = seq 0 1 where seq x y = x+y:seq y (x+y)
 
-With this definition, an expressive solution is once again possible.
+Only as many values as are required will be generated.
 
 > euler2 n = sum . filter even . takeWhile (<= n) $ fibonacci
 

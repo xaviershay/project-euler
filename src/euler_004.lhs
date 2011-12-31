@@ -12,8 +12,7 @@ reversed form.
 > palindrome x = let x' = show x in x' == reverse x'
 
 Since the input set is relatively small, it would suffice to generate a list of
-all possible numbers and filter them. This can generate a solution on my
-machine in approximately two seconds. The search space can be reduced
+all possible numbers and filter them. The search space can be reduced
 dramatically, however, with two techniques.
 
 It is known that the answer will be six digits long (maximum length of two
@@ -28,12 +27,12 @@ set to be trimmed considerably, yielding an order of magnitude speed up.
 
 Intuitively, the answer will be the product of two digits greater than nine
 hundred, which allows us to scope the search space even further.  While this
-may be presumptious, if no solution is found it is easy enough to drop the
+may be presumptuous, if no solution is found it is easy enough to drop the
 lower bound.
 
 > euler4 r = maximum palindromes
 >   where
->     palindromes = [x * y | x <- r, y <- ys, palindrome $ x * y]
+>     palindromes = [z | x <- r, y <- ys, let z = x * y, palindrome z]
 >     ys          = [y | y <- r, rem y 11 == 0]
 
 > tests4 =

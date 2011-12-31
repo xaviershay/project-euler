@@ -8,10 +8,12 @@ Define a data type `Month` that allows interation over all months in a range.
 This is overkill for this problem, but allows a chance to investigate Haskell's
 type system.
 
-A `Month` is composed of a year and a month. Provide a conversion to the
-built-in type `Day` that returns the first day of the month.
+A `Month` is composed of a year and a month. 
 
 > data Month = Month Integer Int
+
+Provide a conversion to the built-in type `Day` that returns the first day of
+the month.
 
 > toDay (Month y m) = fromGregorian y m 1
 
@@ -21,7 +23,7 @@ For display, match the format of `Day` but with days truncated.
 >   show (Month y m) = show y ++ "-" ++ show m
 
 Map months to a contiguous range of integers. This is the minimal required
-definition of `Enum` that will allow use of `Month` in ranges.
+definition of `Enum` that will allow the use of `Month` in ranges.
 
 > instance Enum Month where
 >   fromEnum (Month y m) = (fromInteger y) * 12 + m - 1

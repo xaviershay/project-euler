@@ -5,10 +5,10 @@ Problem 10
  >
  > Find the sum of all the primes below two million.
 
-Re-uses the `primes` function defined in problem seven. Takes a while, but gets
-there in the end.
+Re-uses the `primes` function defined in problem seven. Takes a few seconds,
+but gets the solution in the end.
 
-> euler10 n = sum . takeWhile (< n) $ primes
+> euler10 n = sum $ takeWhile (< n) primes
 
 > tests10 =
 >   [ "#10 given"   ~: 17           ~=? euler10 10

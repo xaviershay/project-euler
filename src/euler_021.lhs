@@ -32,7 +32,7 @@ A special case is required for 1, since it has no proper divisors.
 >         b = d a
 >         d = sum . properDivisors
 
-> euler21 n = sum . filter amiacable $ [1..n-1]
+> euler21 n = sum $ filter amiacable [1..n-1]
 
 > tests21 =
 >  [ "#21 problem" ~: 31626 ~=? euler21 10000

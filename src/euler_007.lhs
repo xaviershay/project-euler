@@ -6,9 +6,10 @@ Problem 7
  >
  > What is the 10,001<sup>st</sup> prime number?
 
-Having read the [Haskell wiki page on prime generation][haskell-wiki-primes] a
-few times, I cheated and nabbed an algorithm with a good trade-off between
-readability and efficiency ("Optimal trial divison").
+Having already read the [Haskell wiki page on prime
+generation][haskell-wiki-primes] a few times, I cheated and nabbed an algorithm
+with a good trade-off between readability and efficiency ("Optimal trial
+divison").
 
 It works by dividing each new candidate number by every prime generated so far
 that is less than the square root of the number. If none divide evenly into the
@@ -23,7 +24,7 @@ tested.
 
 > primes = 2 : 3 : filter (coprime $ tail primes) [5,7..]
 
-> euler7 x = head . drop (x - 1) $ primes
+> euler7 x = head $ drop (x - 1) primes
 
 > tests7 =
 >   [ "#7 given"   ~: 13     ~=? euler7 6

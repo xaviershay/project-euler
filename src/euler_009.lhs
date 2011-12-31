@@ -10,11 +10,11 @@ Problem 9
  > Find the product |abc|.
 
 Using a brute force method, the inner loop is over values of _b_. It therefore
-makes sense to optimize that loop by bounding the range to consider as much as
-possible. The lower bound is obvious since _a_ < _b_. A naive upper bound is
-1000 - _a_ - _a_, since _b_ > _a_, _c_ > _a_, and the sum of all three must
-equal 1000. Considering also that _c_ > _b_ however allows us to further
-eliminate the top half of the range.
+makes sense to optimize that loop by bounding its range as much as possible.
+The lower bound is obvious since |a < b|. A naive upper bound is
+|1000 - a - a|, since |b > a|, |c > a|, and the sum of all three must equal
+1000. However, considering also that |c > b| allows us to further eliminate
+the top half of the range.
 
 > maxB n a = (n-a) `div` 2
 
@@ -30,10 +30,10 @@ eliminate the top half of the range.
 >  ]
 
 For a brute force method that naturally maps to the problem description this
-solution isn't bad.  Substitution and rearranging of the equations can lead to
+solution is not bad. Substitution and rearranging of the equations can lead to
 better lower and upper bounds for the search space, but this is merely a
 refinement of the same algorithm. There is a more elegant algorithmic
-approach, however.
+approach.
 
 [Euclid's formula][euclid-wiki] states that for all Pythagorean triples the
 following hold true where _m_ and _n_ are positive integers:

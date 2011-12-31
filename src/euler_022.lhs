@@ -14,16 +14,16 @@ Problem 22
 
 The word scoring function takes advantage of all the names being uppercase A-Z,
 though any different alphabet could be substituted easily. This is not the most
-efficient algorithm. Scoring a character is O(|n|), but is sufficient for this
-problem. It could easily be improved by using a lookup table, or O(1) if the
-ordinal values of the letters were used.
+efficient algorithm since scoring a character is O(|n|), but is sufficient for
+this problem. It could easily be improved by using a lookup table, or O(1) if
+the ordinal values of the letters were used.
 
 > scoreWord index word = index * sum (map scoreChar word)
 >   where
 >     alphabet    = ['A'..'Z']
 >     scoreChar x = fromJust (elemIndex x alphabet) + 1
 
-> scoreArray = sum . zipWith scoreWord  [1..] . sort
+> scoreArray = sum . zipWith scoreWord [1..] . sort
 
 > euler22 = scoreArray . parse
 >   where

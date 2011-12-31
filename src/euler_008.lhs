@@ -33,7 +33,7 @@ return sequences of less than five digits (from the end of the string), but
 these do not need to be filtered since their product will never be more than
 the same string with an extra preceeding digit.
 
-> euler8 input = maximum . map (product . take 5) . tails $ digits
+> euler8 input = maximum . map (product . take 5) $ tails digits
 >   where
 >     digits = map digitToInt input
 

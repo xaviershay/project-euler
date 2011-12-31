@@ -15,7 +15,7 @@ Problem 6
 
 The problem translates naturally into code.
 
-> euler6 n = (sum r)^2 - (sum . map (^ 2) $ r)
+> euler6 n = (sum r)^2 - (sum $ map (^ 2) r)
 >   where
 >     r = [1..n]
 
@@ -25,6 +25,6 @@ The problem translates naturally into code.
 >   ]
 
 There is alternative algebraic solution that relies on knowing that the sum of
-the first _n_ natural numbers is _n_(_n_+1)/2 and that the sum of the first _n_
-squares is _n_(_n_+1)(2<i>n</i>+1)/6. These are both easy to prove by
-induction, but I wasn't able to derive them myself.
+the first |n| natural numbers is |n(n+1)/2| and that the sum of the first |n|
+squares is |n(n+1)(2n+1)/6|. Squaring both and taking the difference with
+|n = 100| yields the correct answer.

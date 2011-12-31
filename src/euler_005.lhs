@@ -7,11 +7,10 @@ Problem 5
  > What is the smallest positive number that is evenly divisible by all of the
  numbers from 1 to 20?
 
-Using the built-in `lcm` function is arguably cheating, but as the
-prime-factoring basis of the algorithm has already be written in problem three,
-I feel it is allowable.
+Using the built-in `lcm` function is arguably cheating, but the prime-factoring
+basis of the algorithm has already be written in problem three.
 
-> euler5 n = foldl1 lcm [1..n]
+> euler5 = foldl1 lcm . enumFromTo 1
 
 > tests5 =
 >   [ "#5 given"   ~: 2520      ~=? euler5 10

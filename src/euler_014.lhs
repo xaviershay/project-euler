@@ -20,9 +20,9 @@ Problem 14
  > Note that once the chain starts the terms are allowed to go above one
  > million.
 
-A memoized recursive function to calculate the length of the collatz sequence
-for a number. Memoization is critical here as it speeds up the solution by an
-order of magnitude.
+A recursive function can be used to calculate the length of the collatz
+sequence for a number. Memoization is critical here as it speeds up the
+solution by an order of magnitude.
 
 > collatz :: Integer -> Integer
 > collatz = Memo.arrayRange (1,1000000) collatz'

@@ -11,13 +11,13 @@ Problem 24
  > What is the millionth lexicographic permutation of the digits 0 to 9?
 
 Haskell provides a built in `permutations` function, but it is not in lexical
-order. It is not hard to define using list comprehensions.
+order. List comprehensions can be used to build a new version.
 
 > lexicalPermutations [] = [[]]
 > lexicalPermutations xs = [x:ys | x  <- xs,
 >                                  ys <- lexicalPermutations (delete x xs)]
 
-There is a potential off-by-one error lurking here. The sixth permutation is at
+There is a potential off-by-one error lurking here: the sixth permutation is at
 index five in the list.
 
 > euler24 range n = map intToDigit $ lexicalPermutations range !! (n-1)

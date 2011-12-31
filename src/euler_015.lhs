@@ -19,7 +19,9 @@ whenever |x| or |y| is 0. In the case of a |2 * 2| grid:
 ) = 6
 
 As with the last problem, memoization is essential to allow this algorithm a
-reasonable running time.
+reasonable running time, though the extra speed up of an `arrayRange` is not
+required. This is beneficial since the maximum input does not need to be hard
+coded.
 
 > gridPaths = Memo.memo2 Memo.integral Memo.integral f
 >   where

@@ -15,10 +15,10 @@ Problem 12
  > value of the first triangle number to have over five hundred divisors?
 
 An infinite sequence of triangle numbers is a delight to define in Haskell.
-This is a more refined approach than that used for the Fibonacci sequence in
-problem two.
+This is an alternative approach than that used for the Fibonacci sequence in
+problem two, though they are mostly interchangeable.
 
-> triangles = 1:(zipWith (+) triangles [2..])
+> triangles = 1:zipWith (+) triangles [2..]
 
 The prime factorization algorithm from problem three is reused here, though
 rather than naively testing all numbers it uses the `primes` generator from
@@ -33,8 +33,8 @@ of each prime factor plus one. For example, the prime factors of 28 are
 > numFactors = foldl1 (*) . map ((+ 1) . length) . group . primeFactors
 
 A reasonable lower bound such as |500 * 500| could be specified for the
-triangle numbers, but it makes a neglible difference to the running time of the
-search.
+triangle numbers, but it makes a negligible difference to the running time of
+the search. The number 1 is excluded since it has no prime factors.
 
 > euler12 n = head [x | x <- drop 1 triangles, numFactors x > n]
 

@@ -41,10 +41,10 @@ For numbers greater than 100 the translation logic is much simpler and can be
 coded inline. This data structure is the core of the algorithm, and it is
 obvious how it could be extended to support millions, billions, and beyond.
 
-> ranges = let b label x = (numberToWords x) ++ " " ++ label in
+> ranges = let f label x = (numberToWords x) ++ " " ++ label in
 >   [ (1, formatBelow100)
->   , (10^2, b "hundred")
->   , (10^3, b "thousand")
+>   , (10^2, f "hundred")
+>   , (10^3, f "thousand")
 >   , (10^6, (\x -> error "Number too large"))
 >   ]
 
