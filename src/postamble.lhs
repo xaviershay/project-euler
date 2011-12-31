@@ -1,5 +1,5 @@
-Closing
--------
+Postamble
+---------
 
 There are over three hundred and fifty problems current on Project Euler, and I
 have as yet tackled but a small sample of them here. In time, I hope to extend
