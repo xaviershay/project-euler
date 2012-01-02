@@ -42,8 +42,11 @@ The strict function `fold1' max` is used rather than `maximum` so that it
 executes with a constant memory bound. See the Haskell wiki page on [stack
 overflow][hwiki-stack-overflow] for more information.
 
+A signature is required to allow it to be generalized to lists of any type.
+
 [hwiki-stack-overflow]: http://www.haskell.org/haskellwiki/Stack_overflow
 
+> maxIndex :: (Ord a) => [a] -> Int
 > maxIndex = snd . foldl1' max . (flip zip [0..])
 
 The solution is a trivial combination of these two functions.
